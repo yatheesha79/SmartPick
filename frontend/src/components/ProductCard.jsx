@@ -1,17 +1,37 @@
-function ProductCard() {
+function ProductCard({ product }) {
   return (
     <div>
-      <h3>iPhone 16</h3>
+      <h2>{product.name}</h2>
 
-      <p>Brand: Apple</p>
+      <p>
+        Brand: {product.brand}
+      </p>
 
-      <p>Best Price: ₹70,000</p>
+      <h3>Available Platforms</h3>
 
-      <p>Rating: ⭐ 4.5</p>
+      {
+        product.platforms.map((platform, index) => (
+          <div key={index}>
+            <p>
+              {platform.name}
+            </p>
 
-      <button>
-        View Product
-      </button>
+            <p>
+              Price: ₹{platform.price}
+            </p>
+
+            <p>
+              ⭐ Rating: {platform.rating}
+            </p>
+
+            <a href={platform.link}>
+              Visit Store
+            </a>
+
+            <hr />
+          </div>
+        ))
+      }
 
     </div>
   );

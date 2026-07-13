@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import FilterPanel from "../components/FilterPanel";
@@ -7,16 +9,22 @@ import Footer from "../components/Footer";
 
 
 function Home() {
+
+  const [searchText, setSearchText] = useState("");
+
   return (
     <div>
 
       <Header />
 
-      <SearchBar />
+      <SearchBar
+        searchText={searchText}
+        setSearchText={setSearchText}
+      />
 
       <FilterPanel />
 
-      <ProductList />
+      <ProductList searchText={searchText} />
 
       <AIAssistant />
 
