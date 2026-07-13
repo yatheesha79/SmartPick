@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import Recommendation from "../components/Recommendation";
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import FilterPanel from "../components/FilterPanel";
@@ -27,6 +27,8 @@ function Home() {
       <ProductList searchText={searchText} />
 
       <AIAssistant />
+
+      <Recommendation />
 
       <Footer />
 
