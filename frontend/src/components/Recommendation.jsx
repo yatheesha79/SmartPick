@@ -1,18 +1,49 @@
-function Recommendation() {
+function Recommendation({ product }) {
+
+  if (!product || !product.platforms) {
+    return null;
+  }
+
+
+  const cheapest = [...product.platforms].sort(
+    (a,b)=>a.price-b.price
+  )[0];
+
+
   return (
-    <section>
-      <h2>SmartPick Recommendation</h2>
+
+    <div className="recommendation">
+
+      <h2>
+        🤖 SmartPick AI Recommendation
+      </h2>
+
+
+      <h3>
+        💰 Cheapest Option
+      </h3>
+
 
       <p>
-        Best Choice: Flipkart
+        {cheapest.name}
       </p>
+
 
       <p>
-        Reason: Good balance between price and rating.
+        Price: ₹{cheapest.price}
       </p>
 
-    </section>
+
+      <p>
+        ⭐ {cheapest.rating || "No rating"}
+      </p>
+
+
+    </div>
+
   );
+
 }
+
 
 export default Recommendation;

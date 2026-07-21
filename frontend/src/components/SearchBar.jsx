@@ -1,21 +1,37 @@
-function SearchBar({ searchText, setSearchText }) {
+import React from "react";
+
+function SearchBar({searchText,setSearchText}){
+
+
   return (
-    <section>
-      <h2>Find the best product easily</h2>
+
+    <div className="search-container">
 
       <input
+
         type="text"
-        placeholder="Search any product..."
+
         value={searchText}
-        onChange={(e) => setSearchText(e.target.value)}
+
+        onChange={(e)=>setSearchText(e.target.value)}
+
+        placeholder="Search products, brands, categories..."
+
       />
 
+
       <button>
-        Search
+
+        🔍 Search
+
       </button>
 
-    </section>
+
+    </div>
+
   );
+
 }
+
 
 export default SearchBar;
